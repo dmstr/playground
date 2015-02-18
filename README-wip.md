@@ -15,9 +15,9 @@ First install some additional libs
 
 #### Install development packages		
 		
-Enable dev-master for extensions under your development
+Enable `dev-master` for extensions under your development
 
-	composer require \
+	composer require --dev \
 		schmunk42/yii2-giiant:dev-master
 
 ### Modules		
@@ -55,3 +55,10 @@ Example Sakila module
         --tables=actor,address,category,city,country,customer,film,film_actor,film_category,film_text,inventory,language,payment,rental,staff,store
         
        
+
+       
+Production
+----------
+
+    docker tag playground:production tutum.co/schmunk/playground:producttion
+    docker push tutum.co/schmunk/playground:producttion
