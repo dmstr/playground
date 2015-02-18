@@ -2,6 +2,8 @@
 
 *How To build up your custom Yii CMS application ... and much more.*
 
+**[Try the Demo](http://playground-ee59a477-1.schmunk.cont.tutum.io:49160)**
+
 ### Extensions
 
 #### Install library packages
@@ -37,6 +39,10 @@ Restart application
 And check if the migrations have been applied.
 
 #### Create CRUD
+
+Dependency injection configuration
+
+    `config/giiant.php`
 
 Example Sakila module
 
