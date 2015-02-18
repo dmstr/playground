@@ -11,7 +11,7 @@ $config = [
         'assetManager' => [
             'forceCopy'  => false, // Note: May degrade performance with Docker or VMs
             'linkAssets' => false, // Note: May also publish files, which are excluded in an asset bundle
-            'dirMode'    => 0777,
+            'dirMode'    => YII_ENV_PROD ? 0777 : null, // Note: For using mounted volumes or shared folders
             'bundles'    => [
                 #'yii\bootstrap\BootstrapAsset' => false, // provided by frontend/assets/web/app.css
             ],
@@ -57,14 +57,14 @@ $config = [
             'class'  => 'app\modules\admin\Module',
             'layout' => '@admin-views/layouts/main',
         ],
-        'docs'    => [
+        /*'docs'    => [
             'class'  => \schmunk42\markdocs\Module::className(),
             'layout' => '@app/views/layouts/container',
-        ],
-        'packaii' => [
+        ],*/
+        /*'packaii' => [
             'class'  => \schmunk42\packaii\Module::className(),
             'layout' => '@admin-views/layouts/main',
-        ],
+        ],*/
         'user'    => [
             'class'        => 'dektrium\user\Module',
             'layout'       => '@admin-views/layouts/main',
@@ -76,7 +76,6 @@ $config = [
         'appName'        => getenv('APP_NAME'),
         'adminEmail'     => getenv('APP_ADMIN_EMAIL'),
         'supportEmail'   => getenv('APP_SUPPORT_EMAIL'),
-        'copyrightBy'    => getenv('APP_COPYRIGHT'),
         'yii.migrations' => [
             '@dektrium/user/migrations',
         ]

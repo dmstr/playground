@@ -9,8 +9,6 @@ web:
     links:
         - db:DB
     environment:
-        APP_ID: playground
-        APP_NAME: Phundament Playground
         APP_PRETTY_URLS: 1
         YII_ENV: dev
         YII_DEBUG: true
@@ -54,3 +52,18 @@ testdb:
         MYSQL_USER: test
         MYSQL_PASSWORD: test123
         MYSQL_DATABASE: test-playground
+
+
+#prodweb:
+#    image: myapp-production
+#    ports:
+#        - "80"
+#    expose:
+#        - "80"
+#    links:
+#        - db:DB
+#    environment:
+#        YII_DEBUG: true
+#        APP_PRETTY_URLS: 1
+#        DB_ENV_MYSQL_DATABASE: prod-myapp
+#        VIRTUAL_HOST: ~^prod-myapp\..*\.xip\.io
