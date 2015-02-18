@@ -42,7 +42,11 @@
     "yiisoft/yii2": "2.0.*",
     "yiisoft/yii2-bootstrap": "2.*",
     "yiisoft/yii2-composer": "*",
-    "yiisoft/yii2-swiftmailer": "2.*"
+    "yiisoft/yii2-swiftmailer": "2.*",
+    "dmstr/yii2-db": "@stable",
+    "dmstr/yii2-bootstrap": "@stable",
+    "schmunk42/yii2-giiant": "dev-master",
+    "zhuravljov/yii2-datetime-widgets": "@stable"
   },
   "require-dev": {
     "yiisoft/yii2-apidoc": "2.*",
@@ -50,8 +54,7 @@
     "yiisoft/yii2-coding-standards": "2.*",
     "yiisoft/yii2-debug": "2.*",
     "yiisoft/yii2-faker": "2.*",
-    "yiisoft/yii2-gii": "2.*",
-    "schmunk42/yii2-giiant": "*"
+    "yiisoft/yii2-gii": "2.*"
   },
   "scripts": {
     "post-create-project-cmd": [
