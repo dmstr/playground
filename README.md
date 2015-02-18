@@ -1,17 +1,12 @@
-Phundament 4.0.x-dev
-====================
-
-> Please note: This is a `beta` version.
-
-Phundament is a 12factor PHP application template for Yii Framework 2.0.
-
-[![Build Status](https://travis-ci.org/phundament/app.svg?branch=4.0)](https://travis-ci.org/phundament/app)
-[![Total Downloads](https://poser.pugx.org/phundament/app/downloads.png)](https://packagist.org/packages/phundament/app)
-[![Stories in Ready](https://badge.waffle.io/phundament/app.png?label=ready&title=Ready)](https://waffle.io/phundament/app)
+Phundament Playground
+=====================
 
 Quick-Start
 -----------
 
+    git clone https://github.com/phundament/playground.git
+
+    
 You can install _Phundament 4_ using [composer](https://getcomposer.org/download/)...
 
     composer global require "fxp/composer-asset-plugin:1.0.0-beta4"

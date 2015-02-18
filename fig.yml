@@ -9,11 +9,12 @@ web:
     links:
         - db:DB
     environment:
-        APP_NAME: myapp-fig
+        APP_ID: playground
+        APP_NAME: Phundament Playground
         APP_PRETTY_URLS: 1
         YII_ENV: dev
         YII_DEBUG: true
-        VIRTUAL_HOST: ~myapp-fig\..*\.xip\.io
+        VIRTUAL_HOST: ~playground\..*\.xip\.io
 db:
     image: mysql
     ports:
@@ -24,7 +25,7 @@ db:
         MYSQL_ROOT_PASSWORD: secretroot
         MYSQL_USER: dev
         MYSQL_PASSWORD: dev123
-        MYSQL_DATABASE: myapp-fig
+        MYSQL_DATABASE: playground
 
 
 testweb:
@@ -41,7 +42,7 @@ testweb:
         APP_NAME: test-myapp-fig
         APP_PRETTY_URLS: 1
         YII_ENV: test
-        VIRTUAL_HOST: ~test-myapp-fig\..*\.xip\.io
+        VIRTUAL_HOST: ~test-playground\..*\.xip\.io
 testdb:
     image: mysql
     ports:
@@ -52,4 +53,4 @@ testdb:
         MYSQL_ROOT_PASSWORD: secretroot
         MYSQL_USER: test
         MYSQL_PASSWORD: test123
-        MYSQL_DATABASE: test-myapp-fig
+        MYSQL_DATABASE: test-playground
