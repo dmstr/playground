@@ -53,7 +53,7 @@ $config = [
 
     ],
     'modules'    => [
-        'admin'   => [
+        'admin'  => [
             'class'  => 'app\modules\admin\Module',
             'layout' => '@admin-views/layouts/main',
         ],
@@ -65,7 +65,11 @@ $config = [
             'class'  => \schmunk42\packaii\Module::className(),
             'layout' => '@admin-views/layouts/main',
         ],*/
-        'user'    => [
+        'sakila' => [
+            'class'  => 'app\modules\sakila\Module',
+            'layout' => '@admin-views/layouts/main',
+        ],
+        'user'   => [
             'class'        => 'dektrium\user\Module',
             'layout'       => '@admin-views/layouts/main',
             'defaultRoute' => 'profile',
@@ -78,6 +82,7 @@ $config = [
         'supportEmail'   => getenv('APP_SUPPORT_EMAIL'),
         'yii.migrations' => [
             '@dektrium/user/migrations',
+            '@app/modules/sakila/migrations',
         ]
     ]
 
@@ -170,6 +175,8 @@ if (YII_ENV_DEV) {
         'class'      => 'yii\gii\Module',
         'allowedIPs' => $allowedIPs
     ];
+    // DI config
+    require(__DIR__.'/giiant.php');
 }
 
 if (file_exists(__DIR__ . '/local.php')) {
