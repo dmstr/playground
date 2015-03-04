@@ -6,6 +6,8 @@
 
 **[Try the Online-Demo](http://playground.178.62.168.178.xip.io) or download [production container stack](https://github.com/phundament/playground/blob/master/build/production.yml).** 
 
+Also available on [Docker Hub](https://registry.hub.docker.com/u/schmunk42/phundament-playground/).
+
 ---
 
 ### Extensions
