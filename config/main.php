@@ -12,9 +12,7 @@ $config = [
             'forceCopy'  => false, // Note: May degrade performance with Docker or VMs
             'linkAssets' => false, // Note: May also publish files, which are excluded in an asset bundle
             'dirMode'    => YII_ENV_PROD ? 0777 : null, // Note: For using mounted volumes or shared folders
-            'bundles'    => [
-                #'yii\bootstrap\BootstrapAsset' => false, // provided by frontend/assets/web/app.css
-            ],
+            'bundles'    => YII_ENV_PROD ? require(__DIR__ . '/assets-prod.php') : null,
         ],
         'cache'        => [
             'class' => 'yii\caching\FileCache',
@@ -34,6 +32,14 @@ $config = [
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
             'useFileTransport' => YII_ENV_PROD ? false : true,
+        ],
+        'session'      => [
+            'class' => 'yii\redis\Session',
+            'redis' => [
+                'hostname' => getenv('REDIS_PORT_6379_TCP_ADDR'),
+                'port'     => getenv('REDIS_PORT_6379_TCP_PORT'),
+                'database' => 0,
+            ]
         ],
         'urlManager'   => [
             'enablePrettyUrl' => getenv('APP_PRETTY_URLS') ? true : false,
@@ -176,7 +182,7 @@ if (YII_ENV_DEV) {
         'allowedIPs' => $allowedIPs
     ];
     // DI config
-    require(__DIR__.'/giiant.php');
+    require(__DIR__ . '/giiant.php');
 }
 
 if (file_exists(__DIR__ . '/local.php')) {

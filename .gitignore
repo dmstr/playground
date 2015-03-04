@@ -45,3 +45,5 @@ logs
 tests/_output/*
 backend
 local.php
+assets-prod.php
+web/assets-prod

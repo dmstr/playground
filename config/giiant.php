@@ -7,6 +7,7 @@
         'columnNames' => [
             'rental_date',
             'return_date',
+            'payment_date',
         ]
     ]
 );

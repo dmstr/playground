@@ -8,13 +8,15 @@ web:
         - ./:/app/
     links:
         - db:DB
+        - redis:REDIS
+        - mongo:MONGO
     environment:
         APP_PRETTY_URLS: 1
         YII_ENV: dev
         YII_DEBUG: true
         VIRTUAL_HOST: ~playground\..*\.xip\.io
 db:
-    image: mysql
+    image: mariadb
     ports:
         - "3306"
     expose:
@@ -23,47 +25,13 @@ db:
         MYSQL_ROOT_PASSWORD: secretroot
         MYSQL_USER: dev
         MYSQL_PASSWORD: dev123
-        MYSQL_DATABASE: playground
+        MYSQL_DATABASE: playground-9
 
+redis:
+    image: redis
 
-testweb:
-    build: .
-    ports:
-        - "80"
-    expose:
-        - "80"
-    volumes:
-        - ./:/app/
-    links:
-        - testdb:DB
-    environment:
-        APP_NAME: test-myapp-fig
-        APP_PRETTY_URLS: 1
-        YII_ENV: test
-        VIRTUAL_HOST: ~test-playground\..*\.xip\.io
-testdb:
-    image: mysql
-    ports:
-        - "3306"
-    expose:
-        - "3306"
-    environment:
-        MYSQL_ROOT_PASSWORD: secretroot
-        MYSQL_USER: test
-        MYSQL_PASSWORD: test123
-        MYSQL_DATABASE: test-playground
+mongo:
+    image: mongo
 
-
-#prodweb:
-#    image: myapp-production
-#    ports:
-#        - "80"
-#    expose:
-#        - "80"
-#    links:
-#        - db:DB
-#    environment:
-#        YII_DEBUG: true
-#        APP_PRETTY_URLS: 1
-#        DB_ENV_MYSQL_DATABASE: prod-myapp
-#        VIRTUAL_HOST: ~^prod-myapp\..*\.xip\.io
+#es:
+#    image: elasticsearch
