@@ -1,72 +1,72 @@
-Phundament 4
-============
+# Phundament Developer Playground
 
-> Please note: This is a `beta` [version](version).
+*How To build up your custom Yii CMS application ... and much more.*
 
-Phundament is a 12factor PHP application template for Yii Framework 2.0.
+---
 
-[![Build Status](https://travis-ci.org/phundament/app.svg?branch=4.0)](https://travis-ci.org/phundament/app)
-[![Total Downloads](https://poser.pugx.org/phundament/app/downloads.png)](https://packagist.org/packages/phundament/app)
-[![Stories in Ready](https://badge.waffle.io/phundament/app.png?label=ready&title=Ready)](https://waffle.io/phundament/app)
+**[Try the Demo](http://playground.178.62.168.178.xip.io)**
 
-Quick-Start
------------
+---
 
-### Composer installation
+### Extensions
 
-You can install _Phundament 4_ using [composer](https://getcomposer.org/download/)...
+#### Install library packages
 
-    composer global require "fxp/composer-asset-plugin:1.0.0-beta4"
-    composer create-project --stability=beta phundament/app myapp
+First install some additional libs
 
-Create and adjust your environment configuration, eg. add a database...
+	composer require \
+		dmstr/yii2-db:@stable \
+		dmstr/yii2-bootstrap:@stable \
+		zhuravljov/yii2-datetime-widgets:@stable
 
-    cd myapp
-    cp .env-dist .env
-    edit .env
+#### Install development packages		
+		
+Enable `dev-master` for extensions under your development
+
+	composer require --dev \
+		schmunk42/yii2-giiant:dev-master
+
+### Modules		
+		
+Create a module
+
+	...
+	
+Configure it
+
+	...
+	
+Restart application
+
+	docker-compose up web
+	
+And check if the migrations have been applied.
+
+#### Create CRUD
+
+Dependency injection configuration
+
+    `config/giiant.php`
+
+Example Sakila module
+
+	docker-compose run --rm web ./yii giiant-batch \
+        --interactive=0 \
+        --overwrite=1 \
+        --enableI18N=1 \
+        --messageCategory=app \
+        --modelBaseClass=app\\modules\\sakila\\base\\SakilaActiveRecord \
+        --modelNamespace=app\\modules\\sakila\\models \
+        --crudControllerNamespace=app\\modules\\sakila\\controllers \
+        --crudSearchModelNamespace=app\\modules\\sakila\\models\\search \
+        --crudViewPath=@app/modules/sakila/views \
+        --crudPathPrefix= \
+        --crudProviders=schmunk42\\giiant\\crud\\providers\\DateTimeProvider \
+        --tables=actor,address,category,city,country,customer,film,film_actor,film_category,film_text,inventory,language,payment,rental,staff,store
+
+       
+Production
+----------
     
-Run the application setup...
-    
-    ./yii app/setup
-    
-Open `http://path-to-app/web` or `http://path-to-app/web?r=admin` in your browser.
+    docker push tutum.co/schmunk/playground
 
-
-### Docker installation
-
-> Note: `docker-compose` was originally named fig and is available [here](https://github.com/docker/fig/releases).
-
-First pull the latest version of the container image
-
-    docker pull phundament/app
-
-Create your application folder    
-    
-    mkdir myapp
-    cd myapp
-    
-And copy the source code from the image    
-    
-    docker run \
-        --volume `pwd`:/app-install \
-        phundament/app:4.0-development \
-        cp -r /app/. /app-install
-
-Now you can start your application by bringing up the `web` service
-
-    docker-compose up web
-    
-If you're running a reverse proxy you can acces the application under [myapp.192.168.59.103.xip.io](http://myapp.192.168.59.103.xip.io).
-Or check the container port with `docker-compose ps`.
-
-
-> Note: Further installation methods with [Docker](https://github.com/phundament/app/blob/master/docs/51-docker.md), [fig (docker-compose)](https://github.com/phundament/app/blob/master/docs/51-fig.md), [Vagrant & Docker](https://github.com/phundament/app/blob/master/docs/51-vagrant-docker.md) or [PaaS](https://github.com/phundament/app/blob/master/docs/52-paas.md) are available in the documentation.
-
-Resources
----------
-
-- [Documentation](docs/README.md)
-- [Project Source-Code](https://github.com/phundament/app)
-- [Website](http://phundament.com)
-- [Team](https://github.com/orgs/phundament/teams)
-- [Imprint](http://herzogkommunikation.de/de/impressum-7.html)
