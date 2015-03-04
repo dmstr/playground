@@ -1,5 +1,5 @@
 prodweb:
-    image: tutum.co/schmunk/playground:production
+    image: schmunk42/phundament-playground:production
     ports:
         - "80"
     #expose:
