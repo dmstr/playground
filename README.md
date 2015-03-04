@@ -4,7 +4,7 @@
 
 ---
 
-**[Try the Demo](http://playground.178.62.168.178.xip.io)**
+**[Try the Online-Demo](http://playground.178.62.168.178.xip.io) or download [production container stack](https://github.com/phundament/playground/blob/master/build/production.yml).** 
 
 ---
 
