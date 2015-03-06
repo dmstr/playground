@@ -42,6 +42,9 @@ nbproject
 .vagrant
 logs
 
+# Load testing
+web/loaderio-*
+
 tests/_output/*
 backend
 local.php
