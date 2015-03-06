@@ -67,6 +67,10 @@ $config = [
             'class'  => \schmunk42\markdocs\Module::className(),
             'layout' => '@app/views/layouts/container',
         ],*/
+        /*'employees'    => [
+            'class'  => 'app\modules\employees\Module',
+            'layout' => '@admin-views/layouts/main',
+        ],*/
         /*'packaii' => [
             'class'  => \schmunk42\packaii\Module::className(),
             'layout' => '@admin-views/layouts/main',
@@ -89,6 +93,7 @@ $config = [
         'yii.migrations' => [
             '@dektrium/user/migrations',
             '@app/modules/sakila/migrations',
+            //'@app/modules/employees/migrations',
         ]
     ]
 
