@@ -41,10 +41,10 @@ class AppController extends BaseAppController
      */
     public function actionVersion()
     {
-        echo "Application Version\n";
-        $cmd = new Command("git describe");
+        $cmd = new Command("git describe --tags --dirty=-dev");
         if ($cmd->execute()) {
             echo $cmd->getOutput();
+            file_put_contents(\Yii::getAlias('@app/version'), $cmd->getOutput());
         } else {
             echo $cmd->getOutput();
             echo $cmd->getStdErr();
