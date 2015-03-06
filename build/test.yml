@@ -1,4 +1,4 @@
-web:
+testweb:
     build: .
     ports:
         - "80"
@@ -7,15 +7,14 @@ web:
     volumes:
         - ./:/app/
     links:
-        - db:DB
-        - redis:REDIS
-        - mongo:MONGO
+        - testdb:DB
+        - testredis:REDIS
     environment:
         APP_PRETTY_URLS: 1
-        YII_ENV: dev
+        YII_ENV: test
         YII_DEBUG: true
-        VIRTUAL_HOST: ~playground\..*\.xip\.io
-db:
+        VIRTUAL_HOST: ~^test-playground\..*
+testdb:
     image: mariadb
     ports:
         - "3306"
@@ -23,15 +22,9 @@ db:
         - "3306"
     environment:
         MYSQL_ROOT_PASSWORD: secretroot
-        MYSQL_USER: dev
-        MYSQL_PASSWORD: dev123
-        MYSQL_DATABASE: playground-9
+        MYSQL_USER: test
+        MYSQL_PASSWORD: test123
+        MYSQL_DATABASE: test-playground-9
 
-redis:
+testredis:
     image: redis
-
-mongo:
-    image: mongo
-
-#es:
-#    image: elasticsearch

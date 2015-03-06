@@ -1,5 +1,7 @@
 #!/bin/sh
 
+echo "\n\n[task] Bundling assets\n"
+
 # Clean and prepare build
 # see https://github.com/yiisoft/yii2/issues/7414, https://github.com/yiisoft/yii2/issues/7473
 rm -rf web/assets-prod
