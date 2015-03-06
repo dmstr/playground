@@ -25,8 +25,14 @@ Prepare `vendor` folder for development
     
     docker-compose run web composer install
 
+Start application
+
+	docker-compose up web
+
 
 ### Customize
+
+> Optional steps
 
 #### Views, Styles
 
@@ -53,19 +59,29 @@ Enable `dev-master` for extensions under your development
 
 ### Develop
 
+> Optional steps
+
 #### Code Generation: Modules	
 		
 Create a module
 
-	...
+	docker-compose run web ./yii gii/module \
+        --moduleID=employees \
+        --moduleClass=app\\modules\\employees\\Module
+        
+    mkdir modules/employees/models/search
 	
 Configure it
 
 	...
 	
-Restart application
+Migration template
+	
+    docker-compose run web ./yii migrate/create --templateFile='@dmstr/db/mysql/templates/file-migration.php' import
 
-	docker-compose up web
+    	    
+    docker-compose run web ./yii migrate
+	
 	
 And check if the migrations have been applied.
 
