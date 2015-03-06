@@ -1,32 +1,59 @@
-# Phundament Developer Playground
+Phundament Developer Playground
+===============================
 
-*How To build up your custom Yii CMS application ... and much more.*
+*A custom Yii CMS application demo with code-generated backend, build upon open-source extensions.*
 
----
+Try a testdrive!
+----------------
 
-**[Try the Demo](http://playground.178.62.168.178.xip.io)**
+[Online Demo](http://playground.188.166.2.35.xip.io)
 
----
+Multiple Phundament 4 containers, MariaDB, Redis, HAProxy
 
-### Extensions
 
-#### Install library packages
+Workflow
+--------
+
+
+### Install
+
+Clone the application
+
+    https://github.com/phundament/playground.git
+    
+Prepare `vendor` folder for development
+    
+    docker-compose run web composer install
+
+
+### Customize
+
+#### Views, Styles
+
+    ...
+
+#### Extensions
+
+##### Install library packages
 
 First install some additional libs
 
-	composer require \
+	docker-compose run web composer require \
 		dmstr/yii2-db:@stable \
 		dmstr/yii2-bootstrap:@stable \
 		zhuravljov/yii2-datetime-widgets:@stable
 
-#### Install development packages		
+##### Install development packages		
 		
 Enable `dev-master` for extensions under your development
 
-	composer require --dev \
+	docker-compose run web composer require --dev \
 		schmunk42/yii2-giiant:dev-master
 
-### Modules		
+
+### Develop
+
+#### Code Generation: Modules	
 		
 Create a module
 
@@ -42,31 +69,65 @@ Restart application
 	
 And check if the migrations have been applied.
 
-#### Create CRUD
+Open [playground.192.168.59.103.xip.io](http://playground.192.168.59.103.xip.io).   
 
-Dependency injection configuration
 
-    `config/giiant.php`
+#### Code Generation: CRUD
 
-Example Sakila module
+Update the *Dependency Injection* configuration `config/giiant.php`.
 
-	docker-compose run --rm web ./yii giiant-batch \
-        --interactive=0 \
-        --overwrite=1 \
-        --enableI18N=1 \
-        --messageCategory=app \
-        --modelBaseClass=app\\modules\\sakila\\base\\SakilaActiveRecord \
-        --modelNamespace=app\\modules\\sakila\\models \
-        --crudControllerNamespace=app\\modules\\sakila\\controllers \
-        --crudSearchModelNamespace=app\\modules\\sakila\\models\\search \
-        --crudViewPath=@app/modules/sakila/views \
-        --crudPathPrefix= \
-        --crudProviders=schmunk42\\giiant\\crud\\providers\\DateTimeProvider \
-        --tables=actor,address,category,city,country,customer,film,film_actor,film_category,film_text,inventory,language,payment,rental,staff,store
+Generate backend files for example Sakila module
+
+	sh build/crud.sh
+
+Open [playground.192.168.59.103.xip.io/admin](http://playground.192.168.59.103.xip.io/admin).
+
+
+
+### Test
+       
+Build your test stack       
+       
+    sh build/test-stack.sh
+          
+Afterwards, run the tests
+          
+    sh build/test.sh
 
        
-Production
-----------
-    
-    docker push tutum.co/schmunk/playground
+### Build       
 
+All tests green? Build production image, this will also build your production assets
+    
+    sh build/image.sh
+
+To release this version, tag and push it to your registry
+
+    sh build/release.sh    
+
+
+### Deploy
+
+        
+[Create an initial production stack on tutum](https://dashboard.tutum.co/stack/launch/) by drag&drop uploading [the stack definition file](build/tutum.yml)
+ or running this command
+
+    sh build/production-stack.sh
+
+If you need to update your stack, run
+
+    sh build/deploy.sh
+
+
+
+Troubleshooting
+---------------
+
+    docker-compose stop
+    docker-compose rm
+
+
+Links
+-----
+
+Also available on [Docker Hub](https://registry.hub.docker.com/u/schmunk42/phundament-playground/).
