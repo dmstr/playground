@@ -6,6 +6,12 @@ Phundament Developer Playground
 Try a testdrive!
 ----------------
 
+---------------------
+
+**DEMO IS UNDER MAINTENANCE, CHECK THE DEMO ON PHUNDAMENT/APP IN THE MEANTIME**
+
+---------------------
+
 **[Online-Demo](http://playground.188.166.2.35.xip.io) or download [production container stack](https://github.com/phundament/playground/blob/master/build/production.yml).** 
 
 Multiple Phundament 4 containers, MariaDB, Redis, HAProxy
