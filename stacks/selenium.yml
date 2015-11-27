@@ -1,0 +1,20 @@
+seleniumfirefox:
+    image: selenium/node-firefox:2.47.1
+    links:
+      - 'appnginx:WEB'
+      - 'seleniumhub:HUB'
+    ports:
+      - '5900'
+
+seleniumchrome:
+    image: selenium/node-chrome:2.47.1
+    links:
+      - 'appnginx:WEB'
+      - 'seleniumhub:HUB'
+    ports:
+      - '5900'
+
+seleniumhub:
+    image: selenium/hub:2.47.1
+    ports:
+      - '4444'
