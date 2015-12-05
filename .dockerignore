@@ -1,8 +1,0 @@
-.git
-.vagrant
-
-data
-vendor
-
-runtime
-web/assets
