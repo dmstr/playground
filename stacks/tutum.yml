@@ -1,67 +1,23 @@
-# Phundament 4 - Spawn and Tutum Stack
-# ====================================
+# Phundament 4 - Instant demo stack
 
-# Note: Wait until `appcli` container has completed its startup.
-
-# Spawn a new project locally
-#
-#   docker-compose run appsrc cp -r /phundament-src/src /mnt
-#   docker-compose up -d
-#   docker-compose run appcli ./yii
-
-# Application services
-# --------------------
-
-# container to run one-off commands - a dockerized shell
-appcli:
-  command: 'sh /app/src/run.sh'
-  # should be replaced with: image: <project_name>_appsrc
-  image: phundament/app:4.0.0-rc7
+php:
+  command: "sh src/run.sh"
+  image: phundament/app:latest
   links:
-    - 'appnginx:WEB'
     - 'mariadb:DB'
-  environment:
-    APP_MIGRATION_LOOKUP: '@app/migrations'
-
-appsrc:
-  image: phundament/app:4.0.0-rc7
   volumes:
-    - '/app'
-  command: '/bin/bash'
+    - /app
 
-# The php-fpm server for interpreting php code
-appfpm:
-  image: phundament/php:5.6-fpm-4.5.0-dev
-  # host-volume for local development
-  volumes_from:
-    - appsrc
+nginx:
+  image: phundament/nginx-one:1.9
   links:
-    - 'mariadb:DB'
-
-# The nginx server for serving static files directly
-appnginx:
-  image: schmunk42/nginx:1.9
-  links:
-    - 'appfpm:PHPFPM'
-  # host-volume for local development
+    - 'php:PHPFPM'
   volumes_from:
-    - appsrc
+    - php
   ports:
-    - '80'
-  environment:
-    VIRTUAL_HOST: '~^spawn\.myapp\.'
-
-# Data Services
-# -------------
+    - 20080:80
 
 mariadb:
-  image: tutum/mariadb:10.1
-  ports:
-    - '3306'
+  image: 'tutum/mariadb:10.1'
   environment:
-    MARIADB_PASS: veryveryverysecretadmin
-
-#redis:
-#    image: redis:3.0
-#    ports:
-#      - 6379
+    MARIADB_PASS: secretadmin
