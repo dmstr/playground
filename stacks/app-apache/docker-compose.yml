@@ -1,0 +1,13 @@
+apache:
+  image: phundament/php-one:5.6-apache
+  volumes:
+    - ../../:/app
+  links:
+    - db:DB
+  ports:
+    - 80
+
+db:
+  image: 'tutum/mariadb:10.1'
+  environment:
+    MARIADB_PASS: secretadmin

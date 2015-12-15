@@ -1,0 +1,11 @@
+php:
+  build: vanilla
+  ports:
+    - 80
+  links:
+    - mariadb:DB
+
+mariadb:
+  image: 'tutum/mariadb:10.1'
+  environment:
+    MARIADB_PASS: secretadmin
