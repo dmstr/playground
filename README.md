@@ -3,10 +3,13 @@
     curl -o docker-compose.yml https://raw.githubusercontent.com/phundament/app/master/tutum.yml    
     docker-compose up -d
 
+### One-liner
+
+    curl https://raw.githubusercontent.com/phundament/playground/master/stacks/app-tutum/docker-compose.yml | docker-compose -f - pull
+
 ### Online Demo
 
-> A demo can be found at the [Phundament Playground Application](https://github.com/phundament/playground/blob/master/README.md) Demo! 
-> You can get the source-code of the demo application from its [GitHub repository](https://github.com/phundament/playground).
+*under construction*
 
 ### PaaS / cloud service
 
