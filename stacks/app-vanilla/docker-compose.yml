@@ -1,9 +1,19 @@
-php:
-  build: vanilla
+vanilla-php:
+  build: .
+  command: bash
   ports:
     - 80
   links:
     - mariadb:DB
+  volumes_from:
+    - toolbox
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+
+toolbox:
+  image: schmunk42/docker-toolbox
+  volumes:
+    - /opt/local/bin
 
 mariadb:
   image: 'tutum/mariadb:10.1'

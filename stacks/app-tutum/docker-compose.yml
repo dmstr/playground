@@ -1,8 +1,8 @@
 # Phundament 4 - Instant demo stack
 
 php:
-  command: "sh src/run.sh"
-  image: phundament/app:latest
+  command: "sh -c 'sh /app/src/setup.sh && php-fpm'"
+  image: phundament/app:4.0.0-rc11
   links:
     - 'mariadb:DB'
   volumes:
