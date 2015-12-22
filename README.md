@@ -13,4 +13,4 @@
 
 ### PaaS / cloud service
 
-[Tutum - test drive](stacks/app-test-drive/README.md)
+[Demo stack "Demoo"](stacks/app-demoo/README.md), include *Tutum* test drive.
