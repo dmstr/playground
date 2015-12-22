@@ -1,6 +1,8 @@
 ### Test-drive with docker compose
 
-    curl -o docker-compose.yml https://raw.githubusercontent.com/phundament/app/master/tutum.yml    
+    mkdir demoo
+    cd demoo
+    curl -o docker-compose.yml https://raw.githubusercontent.com/phundament/playground/master/stacks/app-demoo/docker-compose.yml    
     docker-compose up -d
 
 ### One-liner

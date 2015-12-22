@@ -6,6 +6,8 @@ php:
   environment:
     - APP_NAME=demoo
     - APP_TITLE=+Demoo
+    - APP_ADMIN_PASSWORD=P4!admin
+    - APP_ADMIN_EMAIL=admin@demoo.example.com
   links:
     - 'mariadb:DB'
   volumes:
