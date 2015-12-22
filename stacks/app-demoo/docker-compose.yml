@@ -3,7 +3,9 @@
 php:
   command: "sh -c 'sh /app/src/setup.sh && php-fpm'"
   image: phundament/app:4.0.0-rc12
-  env_file: docker-compose.env
+  environment:
+    - APP_NAME=demoo
+    - APP_TITLE=+Demoo
   links:
     - 'mariadb:DB'
   volumes:
