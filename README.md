@@ -13,4 +13,4 @@
 
 ### PaaS / cloud service
 
-[![Deploy to Tutum](https://s.tutum.co/deploy-to-tutum.svg)](https://dashboard.tutum.co/stack/deploy/)
+[Tutum - test drive](stacks/app-test-drive/README.md)

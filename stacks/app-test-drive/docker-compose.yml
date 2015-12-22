@@ -3,6 +3,7 @@
 php:
   command: "sh -c 'sh /app/src/setup.sh && php-fpm'"
   image: phundament/app:4.0.0-rc11
+  env_file: docker-compose.env
   links:
     - 'mariadb:DB'
   volumes:
