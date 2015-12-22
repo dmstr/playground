@@ -2,12 +2,13 @@
 
 php:
   command: "sh -c 'sh /app/src/setup.sh && php-fpm'"
-  image: phundament/app:4.0.0-rc11
+  image: phundament/app:4.0.0-rc12
   env_file: docker-compose.env
   links:
     - 'mariadb:DB'
   volumes:
     - /app
+    - ./runtime/mysql:/app/runtime/mysql
 
 nginx:
   image: phundament/nginx-one:1.9
