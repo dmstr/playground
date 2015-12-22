@@ -1,7 +1,6 @@
 apache:
-  image: phundament/php-one:5.6-apache
-  volumes:
-    - ../../:/app
+  build: .
+  command: 'sh -c "sh src/init.sh && apache2-foreground"'
   links:
     - db:DB
   ports:
