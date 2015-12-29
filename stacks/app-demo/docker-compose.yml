@@ -2,7 +2,7 @@
 
 php:
   command: "sh -c 'sh /app/src/setup.sh && php-fpm'"
-  image: phundament/app:4.0.0-rc13
+  image: phundament/app:4.0.0-rc14
   environment:
     - APP_NAME=demo
     - APP_TITLE=Phundament Demo
