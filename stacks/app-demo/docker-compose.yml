@@ -4,10 +4,10 @@ php:
   command: "sh -c 'sh /app/src/setup.sh && php-fpm'"
   image: phundament/app:4.0.0-rc12
   environment:
-    - APP_NAME=demoo
-    - APP_TITLE=+Demoo
-    - APP_ADMIN_PASSWORD=P4!admin
-    - APP_ADMIN_EMAIL=admin@demoo.example.com
+    - APP_NAME=demo
+    - APP_TITLE=Phundament Demo
+    - APP_ADMIN_PASSWORD=admin
+    - APP_ADMIN_EMAIL=admin@demo.example.com
   links:
     - 'mariadb:DB'
   volumes:

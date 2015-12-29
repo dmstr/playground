@@ -1,20 +1,19 @@
 Phundament playground
 =====================
 
-"Demoo" - the demo stack
-------------------------
+The demo stack
+--------------
 
 ### Test-drive with docker compose
 
-    mkdir demoo
-    cd demoo
-    curl -o docker-compose.yml https://raw.githubusercontent.com/phundament/playground/master/stacks/app-demoo/docker-compose.yml    
+    mkdir demo
+    cd demo
+    curl -o docker-compose.yml https://raw.githubusercontent.com/phundament/playground/master/stacks/app-demo/docker-compose.yml    
     docker-compose up -d
     docker-compose ps
 
-### One-liner
+Login with `admin`/`admin`
 
-    curl https://raw.githubusercontent.com/phundament/playground/master/stacks/app-demoo/docker-compose.yml | docker-compose -f - pull
 
 Online Demo
 -----------
@@ -23,7 +22,7 @@ Online Demo
 
 ### PaaS / cloud service
 
-[Demo stack "Demoo"](stacks/app-demoo), include *Tutum* test drive.
+[Demo stack "Demoo"](stacks/app-demo), include *Tutum* test drive.
 
 -----
 
