@@ -1,6 +1,6 @@
 # Phundament 4 - Instant demo stack
 
-php:
+cli:
   command: yii cli
   image: phundament/app:latest
   links:
@@ -8,15 +8,6 @@ php:
   volumes:
     - /app
     - ./src/commands/CliController.php:/app/src/commands/CliController.php
-
-nginx:
-  image: phundament/nginx-one:1.9
-  links:
-    - 'php:PHPFPM'
-  volumes_from:
-    - php
-  ports:
-    - 20080:80
 
 mariadb:
   image: 'tutum/mariadb:10.1'
