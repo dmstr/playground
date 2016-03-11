@@ -1,8 +1,8 @@
 # Phundament 4 - Instant demo stack
 
 php:
-  command: "sh -c 'sh /app/src/run.sh'"
-  image: phundament/app:4.0.1
+  command: 'run.sh'
+  image: phundament/app:4.2.0-rc2
   environment:
     - APP_NAME=demo
     - APP_TITLE=Phundament Demo
