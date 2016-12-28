@@ -15,6 +15,13 @@ The demo stack
 Login with `admin`/`admin`
 
 
+
+https://cloud.docker.com/stack/deploy/?repo=https://github.com/docker/dockercloud-quickstart-python
+https://github.com/dmstr/playground/tree/master/phd5
+
+
+
+
 Online Demo
 -----------
 
